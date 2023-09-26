@@ -2,7 +2,7 @@ from keras.models import load_model
 from tkinter import *
 import tkinter as tk
 import win32gui
-from PIL import ImageGrab, Image
+from PIL import ImageGrab, ImageOps
 import numpy as np
 
 model = load_model('mnist.h5')
@@ -12,6 +12,7 @@ def predict_digit(img):
     img = img.resize((28,28))
     #convert rgb to grayscale
     img = img.convert('L')
+    img = ImageOps.invert(img)
     img = np.array(img)
     #reshaping to support our model input and normalizing
     img = img.reshape(1,28,28,1)
