@@ -28,7 +28,7 @@ print(x_test.shape[0], 'test samples')
 
 batch_size = 128
 num_classes = 10
-epochs = 10
+epochs = 100
 
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(5, 5),activation='relu',input_shape=input_shape))
